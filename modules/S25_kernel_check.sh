@@ -72,7 +72,7 @@ S25_kernel_check()
 
   elif [[ $KERNEL -eq 1 ]] && [[ $FIRMWARE -eq 0 ]]  ; then
     print_output "[*] Check kernel configuration ""$(print_path "$KERNEL_CONFIG" )"" via checksec.sh"
-    print_output "$("$EXT_DIR""/checksec" --kernel="$KERNEL_CONFIG")"
+    print_output "$("checksec" --kernel="$KERNEL_CONFIG")"
     FOUND=1
     export LOG_PATH_MODULE
     LOG_PATH_MODULE="$LOG_DIR""/""$(echo "$MODULE_MAIN_NAME" | tr '[:upper:]' '[:lower:]')"
@@ -93,7 +93,7 @@ S25_kernel_check()
         done
       fi
       print_output "[*] Check kernel configuration ""$(print_path "$KERNEL_CONFIG" )"" via checksec.sh"
-      print_output "$("$EXT_DIR""/checksec" --kernel="$KERNEL_CONFIG")"
+      print_output "$("checksec" --kernel="$KERNEL_CONFIG")"
       FOUND=1
 
       get_kernel_vulns
